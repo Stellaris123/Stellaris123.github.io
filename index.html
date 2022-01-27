@@ -152,6 +152,179 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-第一章-基础算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/01/27/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/">第一章 基础算法</a>
+    </h1>
+  
+
+        
+        <a href="/2022/01/27/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2022-01-27T14:43:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、快速排序（分治）"><a href="#一、快速排序（分治）" class="headerlink" title="一、快速排序（分治）"></a>一、快速排序（分治）</h1><img src="C:\Users\李俊霖\AppData\Roaming\Typora\typora-user-images\image-20211115130839735.png" alt="image-20211115130839735" style="zoom: 67%;" />
+
+<p>①确定分界点：$x=q[l]，q[r]，q[l+r&gt;&gt;1]$。</p>
+<p>==②调整区间：一边小于等于$x$，一边大于等于$x$。==</p>
+<p>③递归处理左右两边（注意左右两边的边界）</p>
+<blockquote>
+<p>伪代码：$i$指针从数组左边界的左边开始，$j$指针从数组右边界的右边开始。x采用$l,r$中间的值。先移动$i$指针，当$i$指针所指的数大于$x$的时候停止并开始移动$j$指针，当$j$指针所指的数小于x的时候停止。此时若i&lt;j，则进行交换。</p>
+</blockquote>
+<p>性质：任意时刻，i左边的数始终小于等于x，j右边的数始终大于等于x。当两指针相遇的时候结束。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1e6</span>+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> q[N];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">quick_sort</span><span class="params">(<span class="keyword">int</span> q[],<span class="keyword">int</span> l,<span class="keyword">int</span> r)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(l&gt;=r)<span class="keyword">return</span>;</span><br><span class="line">	<span class="comment">//因为是先移动再判断，所以要将范围向两侧扩一格。</span></span><br><span class="line">    <span class="keyword">int</span> i=l<span class="number">-1</span>,j=r+<span class="number">1</span>,x=q[l+r&gt;&gt;<span class="number">1</span>];<span class="comment">//位运算优先级低于+</span></span><br><span class="line">    <span class="keyword">while</span>(i&lt;j)&#123;</span><br><span class="line">        <span class="keyword">do</span> i++ ;<span class="keyword">while</span>(q[i]&lt;x);</span><br><span class="line">        <span class="keyword">do</span> j-- ;<span class="keyword">while</span>(q[j]&gt;x);</span><br><span class="line">        <span class="keyword">if</span>(i&lt;j)<span class="built_in">swap</span>(q[i],q[j]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//递归处理左右两边</span></span><br><span class="line">    <span class="built_in">quick_sort</span>(q,l,j),<span class="built_in">quick_sort</span>(q,j+<span class="number">1</span>,r);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用，数据从0开始储存。</span></span><br><span class="line"><span class="built_in">quick_sort</span>(q,<span class="number">0</span>,n<span class="number">-1</span>);</span><br></pre></td></tr></table></figure>
+
+<p>时间复杂度：平均$O(nlogn)$，最坏$O(n^2)$。</p>
+<h1 id="二、归并排序（分治）"><a href="#二、归并排序（分治）" class="headerlink" title="二、归并排序（分治）"></a>二、归并排序（分治）</h1><p>①确定分界点：$mid=(l+r)&gt;&gt;1$</p>
+<p>②递归排序$left,right$。</p>
+<p>※③归并——将两个有序的区间合二为一</p>
+<blockquote>
+<p>伪代码：</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1e6</span>+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> q[N];</span><br><span class="line"><span class="keyword">int</span> temp[N];<span class="comment">//临时数组</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge_sort</span><span class="params">(<span class="keyword">int</span> q[],<span class="keyword">int</span> l,<span class="keyword">int</span> r)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(l &gt;= r) <span class="keyword">return</span>;</span><br><span class="line">    <span class="comment">//确定分界点</span></span><br><span class="line">    <span class="keyword">int</span> mid=l+r&gt;&gt;<span class="number">1</span>;</span><br><span class="line">    <span class="comment">//递归排序</span></span><br><span class="line">    <span class="built_in">merge_sort</span>(q,l,mid);</span><br><span class="line">    <span class="built_in">merge_sort</span>(q,mid+<span class="number">1</span>,r);</span><br><span class="line">    <span class="comment">//排序</span></span><br><span class="line">    <span class="keyword">int</span> k=<span class="number">0</span>,i=l,j=mid+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(i&lt;=mid&amp;&amp;j&lt;=r)&#123;</span><br><span class="line">        <span class="keyword">if</span>(q[i]&lt;=q[j])temp[k++]=q[i++];</span><br><span class="line">        <span class="keyword">else</span> temp[k++]=q[j++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//归并</span></span><br><span class="line">    <span class="keyword">while</span>(i&lt;=mid)temp[k++]=q[i++];</span><br><span class="line">    <span class="keyword">while</span>(j&lt;=r)temp[k++]=q[j++];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(i=l,j=<span class="number">0</span>;i&lt;=r;i++,j++)q[i]=temp[j];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用，数据从0开始储存。</span></span><br><span class="line"><span class="built_in">merge_sort</span>(q,<span class="number">0</span>,n<span class="number">-1</span>);</span><br></pre></td></tr></table></figure>
+
+<p>时间复杂度：$O(nlogn)$。（每次划分区间除二，所以与二的对数有关）</p>
+<h1 id="二分"><a href="#二分" class="headerlink" title="二分"></a><font color=LightCoral>二分</font></h1><p>单调序列或单调函数中的查找方式。（终止条件：$l=r$）</p>
+<h2 id="整数域二分"><a href="#整数域二分" class="headerlink" title="整数域二分"></a><font color=LightSalmon>整数域二分</font></h2><ul>
+<li>注意终止边界、左右区间取舍。</li>
+</ul>
+<p>（1）缩小范围：$r=mid$，$l=mid+1$，取中间值：$mid=(l+r)&gt;&gt;1$。</p>
+<p>（2）缩小范围：$l=mid$，$r=mid+r$，取中间值：$mid=(l+r+1)&gt;&gt;1$。</p>
+<p>第一种不会取到$r$这个值，第二种不会取到$l$。可以用来处理无解的情况。最初的二分区间从$[1,n]$扩大到$[1,n+1]$和$[0,n]$，若最后二分终止在这个越界的下标上，则无解。</p>
+<ul>
+<li>右移运算向下取整，整数除法向零取整。</li>
+</ul>
+<h2 id="实数域上的二分"><a href="#实数域上的二分" class="headerlink" title="实数域上的二分"></a><font color=LightSalmon>实数域上的二分</font></h2><ul>
+<li>注意精度问题</li>
+</ul>
+<p>使用循环固定次数的二分方法解决精度问题。（精度比eps高）</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">100</span>;i++)&#123;<span class="comment">//求mid</span></span><br><span class="line">    <span class="keyword">double</span> mid=(l+r)/<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">calc</span>(mid))r=mid; <span class="keyword">else</span> l=mid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<font color=LightSkyBlue>
+
+
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/01/27/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ffffff" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/01/27/ffffff/">ffffff</a>
+    </h1>
+  
+
+        
+        <a href="/2022/01/27/ffffff/" class="archive-article-date">
+  	<time datetime="2022-01-27T14:41:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/01/27/ffffff/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-first-blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
