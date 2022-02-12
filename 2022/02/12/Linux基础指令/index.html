@@ -6,15 +6,15 @@
     <meta charset="utf-8">
     <meta name="keywords" content="Linux基础指令, Stellaris">
     <meta name="description" content="
-指令的参数可以只在一个“ - ”后写出来例如：ls -alh 和 ls -hal 是一样的，没有顺序上的要求。
+指令的参数可以只在一个 “-” 后写出来例如：ls -alh 和 ls -hal 是一样的，没有顺序上的要求。
 
- ctrl
- ctrl -c
+# ctrl
+# ctrl -c
 取消命令，并且换行
- ctrl -u
+# ctrl -u
 清空本行命令
- tab
-补全命令，如果不能补全可以快速按">
+# tab
+补全命令，如果不能补全可">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -413,16 +413,16 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <ul>
-<li>指令的参数可以只在一个“ - ”后写出来例如：ls -alh 和 ls -hal 是一样的，没有顺序上的要求。</li>
+<li>指令的参数可以只在一个 “-” 后写出来例如：ls -alh 和 ls -hal 是一样的，没有顺序上的要求。</li>
 </ul>
-<h1 id="ctrl"><a class="markdownIt-Anchor" href="#ctrl"></a> ctrl</h1>
-<h2 id="ctrl-c"><a class="markdownIt-Anchor" href="#ctrl-c"></a> ctrl -c</h2>
+<h1 id="ctrl"><a class="markdownIt-Anchor" href="#ctrl">#</a> ctrl</h1>
+<h2 id="ctrl-c"><a class="markdownIt-Anchor" href="#ctrl-c">#</a> ctrl -c</h2>
 <p>取消命令，并且换行</p>
-<h2 id="ctrl-u"><a class="markdownIt-Anchor" href="#ctrl-u"></a> ctrl -u</h2>
+<h2 id="ctrl-u"><a class="markdownIt-Anchor" href="#ctrl-u">#</a> ctrl -u</h2>
 <p>清空本行命令</p>
-<h1 id="tab"><a class="markdownIt-Anchor" href="#tab"></a> tab</h1>
-<p>补全命令，如果不能补全可以快速按两下tab显示备选选项。</p>
-<h1 id="cd-dirname跳转"><a class="markdownIt-Anchor" href="#cd-dirname跳转"></a> cd [dirName]（跳转）</h1>
+<h1 id="tab"><a class="markdownIt-Anchor" href="#tab">#</a> tab</h1>
+<p>补全命令，如果不能补全可以快速按两下 tab 显示备选选项。</p>
+<h1 id="cd-dirname跳转"><a class="markdownIt-Anchor" href="#cd-dirname跳转">#</a> cd [dirName]（跳转）</h1>
 <p>dirName：要切换的目标目录</p>
 <ul>
 <li>
@@ -438,14 +438,14 @@
 </ul>
 </li>
 </ul>
-<h1 id="ls"><a class="markdownIt-Anchor" href="#ls"></a> ls</h1>
+<h1 id="ls"><a class="markdownIt-Anchor" href="#ls">#</a> ls</h1>
 <p>显示当前工作目录下所有文件（不包括隐藏文件），蓝色的是文件夹，白色的是普通文件，绿色的是可执行文件。</p>
 <ul>
 <li>
-<p>ls -a：显示所有文件及目录（.开头的隐藏文件也会显示）</p>
+<p>ls -a：显示所有文件及目录（. 开头的隐藏文件也会显示）</p>
 </li>
 <li>
-<p>ls -A：同-a，但不显示“.”（当前目录）和“…”父目录</p>
+<p>ls -A：同 - a，但不显示 “.”（当前目录）和 “…” 父目录</p>
 </li>
 <li>
 <p>ls -l：除文件名称外，还会显示出文件的形态、权限、拥有者、文件大小等。</p>
@@ -457,13 +457,13 @@
 <p>ls -[文件名字]：直接显示指定文件夹的所有文件。</p>
 </li>
 <li>
-<p>ll：ls -la的简写，显示所有文件的信息</p>
+<p>ll：ls -la 的简写，显示所有文件的信息</p>
 </li>
 </ul>
-<h1 id="touch创建文件"><a class="markdownIt-Anchor" href="#touch创建文件"></a> touch（创建文件）</h1>
-<h1 id="mkdir创建文件夹"><a class="markdownIt-Anchor" href="#mkdir创建文件夹"></a> mkdir（创建文件夹）</h1>
+<h1 id="touch创建文件"><a class="markdownIt-Anchor" href="#touch创建文件">#</a> touch（创建文件）</h1>
+<h1 id="mkdir创建文件夹"><a class="markdownIt-Anchor" href="#mkdir创建文件夹">#</a> mkdir（创建文件夹）</h1>
 <p>①创建文件夹</p>
-<p>在当前文件夹下创建一个a文件夹。</p>
+<p>在当前文件夹下创建一个 a 文件夹。</p>
 <ul>
 <li>mkdir a</li>
 </ul>
@@ -471,17 +471,17 @@
 <ul>
 <li>mkdir /a/b</li>
 </ul>
-<p>在文件夹a下创建一个文件夹b。</p>
+<p>在文件夹 a 下创建一个文件夹 b。</p>
 <p>②直接创建一连串文件夹</p>
 <ul>
 <li>mkdir a/b/c</li>
-<li>直接在当前文件夹下创建一个a文件夹，a文件夹下有b文件夹，b文件夹下有c文件夹。</li>
+<li>直接在当前文件夹下创建一个 a 文件夹，a 文件夹下有 b 文件夹，b 文件夹下有 c 文件夹。</li>
 </ul>
-<h1 id="rm"><a class="markdownIt-Anchor" href="#rm"></a> rm</h1>
+<h1 id="rm"><a class="markdownIt-Anchor" href="#rm">#</a> rm</h1>
 <p>①删除文件</p>
 <ul>
 <li>
-<p>rm tmp.txt tmp2.txt：删除当前文件夹下的tmp.txt文件和tmp2.txt文件。可以有多个参数。</p>
+<p>rm tmp.txt tmp2.txt：删除当前文件夹下的 tmp.txt 文件和 tmp2.txt 文件。可以有多个参数。</p>
 </li>
 <li>
 <p>rm *.txt：支持正则表达式。</p>
@@ -489,9 +489,9 @@
 </ul>
 <p>② 删除一个文件夹</p>
 <ul>
-<li>rm c -r：递归删除文件夹。（r递归）</li>
+<li>rm c -r：递归删除文件夹。（r 递归）</li>
 </ul>
-<p>只删除a中的所有东西而不删除a</p>
+<p>只删除 a 中的所有东西而不删除 a</p>
 <ul>
 <li>
 <p>rm a/*</p>
@@ -500,43 +500,43 @@
 <p>创建一个名字带空格的文件</p>
 </li>
 </ul>
-<p>使用转义字符“ \ ”，mkdir y\ c.txt。</p>
-<h1 id="cp-p1-p2"><a class="markdownIt-Anchor" href="#cp-p1-p2"></a> cp [p1] [p2]</h1>
-<p>将p1中的文件复制到p2。</p>
-<p>复制+粘贴+重命名</p>
+<p>使用转义字符 “\”，mkdir y\ c.txt。</p>
+<h1 id="cp-p1-p2"><a class="markdownIt-Anchor" href="#cp-p1-p2">#</a> cp [p1] [p2]</h1>
+<p>将 p1 中的文件复制到 p2。</p>
+<p>复制 + 粘贴 + 重命名</p>
 <p>①复制文件</p>
 <p>cp a/tmp.txt b/</p>
 <p>②复制文件夹</p>
-<p>cp a b -r：将a文件夹复制到b文件夹下。</p>
-<h1 id="mv-a-b"><a class="markdownIt-Anchor" href="#mv-a-b"></a> mv a b</h1>
-<p>将a文件移动到b中。和cp命令一样，a和b可以是一个路径；重命名也是用这个命令</p>
+<p>cp a b -r：将 a 文件夹复制到 b 文件夹下。</p>
+<h1 id="mv-a-b"><a class="markdownIt-Anchor" href="#mv-a-b">#</a> mv a b</h1>
+<p>将 a 文件移动到 b 中。和 cp 命令一样，a 和 b 可以是一个路径；重命名也是用这个命令</p>
 <ul>
 <li>
-<p>mv a.txt a：将a.txt文件移动到a中。</p>
+<p>mv a.txt a：将 a.txt 文件移动到 a 中。</p>
 </li>
 <li>
-<p>mv a.txt b.txt：重命名，将a.txt重命名为b.txt。</p>
+<p>mv a.txt b.txt：重命名，将 a.txt 重命名为 b.txt。</p>
 </li>
 </ul>
-<h1 id="cat"><a class="markdownIt-Anchor" href="#cat"></a> cat</h1>
+<h1 id="cat"><a class="markdownIt-Anchor" href="#cat">#</a> cat</h1>
 <ul>
-<li>cat a.txt：展示a.txt文件的内容。</li>
+<li>cat a.txt：展示 a.txt 文件的内容。</li>
 </ul>
-<h1 id="vim"><a class="markdownIt-Anchor" href="#vim"></a> Vim</h1>
-<h2 id="功能"><a class="markdownIt-Anchor" href="#功能"></a> 功能</h2>
+<h1 id="vim"><a class="markdownIt-Anchor" href="#vim">#</a> Vim</h1>
+<h2 id="功能"><a class="markdownIt-Anchor" href="#功能">#</a> 功能</h2>
 <p>（1）命令行模式下的文本编辑器</p>
 <p>（2）根据文件扩展名自动判别编程语言。支持代码缩进、代码高亮等功能。</p>
 <p>（3）使用方法：vim filename</p>
 <ul>
 <li>如果已有该文件，则打开它。</li>
-<li>如果没有该文件，则打开一个新的文件，并命名为filename。</li>
+<li>如果没有该文件，则打开一个新的文件，并命名为 filename。</li>
 </ul>
-<h2 id="模式"><a class="markdownIt-Anchor" href="#模式"></a> 模式</h2>
+<h2 id="模式"><a class="markdownIt-Anchor" href="#模式">#</a> 模式</h2>
 <p>（1）一般命令模式</p>
 <p>默认模式。命令输入方式：类似于打游戏放技能，按不同字符，即可进行不同操作。可以复制、粘贴、删除文本等。</p>
 <p>（2）编辑模式</p>
 <p>（3）命令行模式</p>
-<h2 id="操作"><a class="markdownIt-Anchor" href="#操作"></a> 操作</h2>
+<h2 id="操作"><a class="markdownIt-Anchor" href="#操作">#</a> 操作</h2>
 <p>（1）进入编辑模式</p>
 <ul>
 <li>i、</li>
@@ -555,16 +555,16 @@
 </ul>
 <p>左右移动不会离开这一行。</p>
 <p>方向键也可以操作。</p>
-<h2 id="移动光标"><a class="markdownIt-Anchor" href="#移动光标"></a> 移动光标</h2>
+<h2 id="移动光标"><a class="markdownIt-Anchor" href="#移动光标">#</a> 移动光标</h2>
 <p>（1）n&lt;space&gt;</p>
-<p>n表示数字，按下数字后再按下空格，光标会向右移动这一行的n个字母。</p>
+<p>n 表示数字，按下数字后再按下空格，光标会向右移动这一行的 n 个字母。</p>
 <p>超过会移动到下一行，直到最后一行的最后以一个字符前。</p>
 <ul>
-<li>5n：光标向后移动5个字符。</li>
+<li>5n：光标向后移动 5 个字符。</li>
 </ul>
-<p>（2） 0或功能键[Home]</p>
+<p>（2） 0 或功能键 [Home]</p>
 <p>光标移动到本行开头。</p>
-<p>（3）$或功能键[End]</p>
+<p>（3）$ 或功能键 [End]</p>
 <p>光标移动到本行行末。</p>
 <p>（4）G</p>
 <p>（5）移动到某一行</p>
@@ -573,23 +573,23 @@
 <p>G：光标移动到最后一行</p>
 </li>
 <li>
-<p>:n或nG：n为数字，光标移动到第n行。</p>
+<p>:n 或 nG：n 为数字，光标移动到第 n 行。</p>
 </li>
 <li>
-<p>gg：光标移动到第一行，相当于1G。</p>
+<p>gg：光标移动到第一行，相当于 1G。</p>
 </li>
 <li>
-<p>n&lt;Enter&gt;：n为数字，光标向下移动n行。</p>
+<p>n&lt;Enter&gt;：n 为数字，光标向下移动 n 行。</p>
 </li>
 </ul>
-<h2 id="字符操作"><a class="markdownIt-Anchor" href="#字符操作"></a> 字符操作</h2>
+<h2 id="字符操作"><a class="markdownIt-Anchor" href="#字符操作">#</a> 字符操作</h2>
 <p>（1）查找字符</p>
 <ul>
 <li>
-<p>/word：向光标下查找第一个值为word的字符串。</p>
+<p>/word：向光标下查找第一个值为 word 的字符串。</p>
 </li>
 <li>
-<p>?word：向光标上查找第一个值为word的字符串。</p>
+<p>?word：向光标上查找第一个值为 word 的字符串。</p>
 </li>
 <li>
 <p>n：重复前一个查找操作。</p>
@@ -600,11 +600,11 @@
 </ul>
 <p>（2）替换字符</p>
 <ul>
-<li>:n1,n2s/word1/word2/g：n1和n2为数字，再第n1行到n2行之间的word1字符串替换为word2字符串。</li>
-<li>:1,$s/word1/word2/g：将全文的word1替换为word2。</li>
-<li>:1,$s/word1/word2/gc：将全文的word1替换为word2，但再替换前要求用户确认。</li>
+<li>:n1,n2s/word1/word2/g：n1 和 n2 为数字，再第 n1 行到 n2 行之间的 word1 字符串替换为 word2 字符串。</li>
+<li>:1,$s/word1/word2/g：将全文的 word1 替换为 word2。</li>
+<li>:1,$s/word1/word2/gc：将全文的 word1 替换为 word2，但再替换前要求用户确认。</li>
 </ul>
-<h1 id="文本操作"><a class="markdownIt-Anchor" href="#文本操作"></a> 文本操作</h1>
+<h1 id="文本操作"><a class="markdownIt-Anchor" href="#文本操作">#</a> 文本操作</h1>
 <p>（1）选中文本</p>
 <ul>
 <li>
@@ -617,7 +617,7 @@
 <p>dd：删除当前行。（剪切）</p>
 </li>
 <li>
-<p>删除全部文本：gg回到开头，d+G删除全文。</p>
+<p>删除全部文本：gg 回到开头，d+G 删除全文。</p>
 </li>
 <li>
 <p>y：复制选中文本。</p>
@@ -626,7 +626,7 @@
 <p>yy：复制当前行。</p>
 </li>
 <li>
-<p>p：将复制的数据在光标的下一个位置粘贴（要是yy复制一行，则是在下一行粘贴）。</p>
+<p>p：将复制的数据在光标的下一个位置粘贴（要是 yy 复制一行，则是在下一行粘贴）。</p>
 </li>
 <li>
 <p>u：撤销</p>
@@ -641,7 +641,7 @@
 <p>shift + &lt;：将选中的文本整体向左移动。</p>
 </li>
 </ul>
-<h2 id="文件保存"><a class="markdownIt-Anchor" href="#文件保存"></a> 文件保存</h2>
+<h2 id="文件保存"><a class="markdownIt-Anchor" href="#文件保存">#</a> 文件保存</h2>
 <ul>
 <li>
 <p>:w：保存</p>
@@ -659,7 +659,7 @@
 <p>:wq：保存并退出</p>
 </li>
 </ul>
-<h2 id="自定义"><a class="markdownIt-Anchor" href="#自定义"></a> 自定义</h2>
+<h2 id="自定义"><a class="markdownIt-Anchor" href="#自定义">#</a> 自定义</h2>
 <ul>
 <li>
 <p>:set paste：设置成粘贴模式，取消代码自动缩进。</p>
@@ -677,10 +677,10 @@
 <p>:noh 关闭查找关键词高亮。</p>
 </li>
 <li>
-<p>gg=G：全文代码格式化，和上面的ggdG原理相同。</p>
+<p>gg=G：全文代码格式化，和上面的 ggdG 原理相同。</p>
 </li>
 <li>
-<p>ctrl + q：当vim卡死时，可以取消当前正在执行的程序。</p>
+<p>ctrl + q：当 vim 卡死时，可以取消当前正在执行的程序。</p>
 </li>
 </ul>
 
