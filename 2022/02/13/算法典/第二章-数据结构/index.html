@@ -4,35 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="第三章 搜索与图论, Stellaris">
-    <meta name="description" content="# 深度优先搜索 DFS
-# DFS 和 BFS 的区别
-搜索结构都是树的样子，但是搜索的顺序不同。
-
-DFS 优先深度
-
-
-
-BFS 广度优先
-
-
-
-区别
-
-
-
-
-
-数据结构
-空间
-特点
-
-
-
-
-DFS
-stack
-O(n)O(n)O(n">
+    <meta name="keywords" content="第二章 数据结构, Stellaris">
+    <meta name="description" content="# 链表与邻接表
+用数组模拟，提高效率。
+# 栈与队列
+# kmp
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -44,7 +21,7 @@ O(n)O(n)O(n">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>第三章 搜索与图论 | Stellaris</title>
+    <title>第二章 数据结构 | Stellaris</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -252,12 +229,12 @@ O(n)O(n)O(n">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">第三章 搜索与图论</h1>
+                    <h1 class="description center-align post-title">第二章 数据结构</h1>
                 </div>
             </div>
         </div>
@@ -380,12 +357,8 @@ O(n)O(n)O(n">
                                 <span class="chip bg-color">算法</span>
                             </a>
                         
-                            <a href="/tags/%E6%90%9C%E7%B4%A2/">
-                                <span class="chip bg-color">搜索</span>
-                            </a>
-                        
-                            <a href="/tags/%E5%9B%BE%E8%AE%BA/">
-                                <span class="chip bg-color">图论</span>
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                                <span class="chip bg-color">数据结构</span>
                             </a>
                         
                     </div>
@@ -438,207 +411,10 @@ O(n)O(n)O(n">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="深度优先搜索dfs"><a class="markdownIt-Anchor" href="#深度优先搜索dfs">#</a> 深度优先搜索 DFS</h1>
-<h2 id="dfs和bfs的区别"><a class="markdownIt-Anchor" href="#dfs和bfs的区别">#</a> DFS 和 BFS 的区别</h2>
-<p>搜索结构都是树的样子，但是搜索的顺序不同。</p>
-<ul>
-<li>DFS 优先深度</li>
-</ul>
-<img src="第三章-搜索与图论/605c22e0fb084b455de9cbbd0c31fd2.jpg" alt="605c22e0fb084b455de9cbbd0c31fd2" style="zoom:33%;" />
-<ul>
-<li>BFS 广度优先</li>
-</ul>
-<img src="第三章-搜索与图论/605c22e0fb084b455de9cbbd0c31fd2-16458795677261.jpg" alt="605c22e0fb084b455de9cbbd0c31fd2" style="zoom: 33%;" />
-<ul>
-<li>区别</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>数据结构</th>
-<th>空间</th>
-<th>特点</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>DFS</td>
-<td>stack</td>
-<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></td>
-<td>不具有最短性（算法思路比较奇怪，空间要求高）</td>
-</tr>
-<tr>
-<td>BFS</td>
-<td>queue</td>
-<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mn>2</mn><mi>n</mi></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(2^n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></td>
-<td>最短路，最小步数，最小操作</td>
-</tr>
-</tbody>
-</table>
-<h2 id="dfs"><a class="markdownIt-Anchor" href="#dfs">#</a> DFS</h2>
-<ul>
-<li>重要概念：回溯，剪枝</li>
-</ul>
-<p>我们可以从搜索树的角度来思考，每一个 DFS 都对应了一个搜索树。</p>
-<ul>
-<li>例一：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/844/">842. 排列数字 - AcWing 题库</a></li>
-</ul>
-<p>DFS：考虑是用了什么顺序（规则）来遍历整个图（树）。</p>
-<p>假设一开始有三个空位，从前往后依次填入，保证各个位数不相同。</p>
-<img src="第三章-搜索与图论/46eb62ec2cc735f2d9b2588cb237463.png" alt="46eb62ec2cc735f2d9b2588cb237463" style="zoom: 33%;" />
-<pre class="language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
-using namespace std;
-const int N&#x3D;10;
-int n;
-int path[N];
-bool st[N];
-void dfs(int u)&#123;
-    if(u&#x3D;&#x3D;n)&#123;&#x2F;&#x2F;当路径满的时候输出
-        for(int i&#x3D;0;i&lt;n;i++)cout&lt;&lt;path[i]&lt;&lt;&quot; &quot;;
-        cout&lt;&lt;endl;
-        return;
-    &#125;
-    for(int i&#x3D;1;i&lt;&#x3D;n;i++)
-        if(!st[i])&#123;&#x2F;&#x2F;判断还有什么数可以填入
-            path[u]&#x3D;i;
-            st[i]&#x3D;true;
-            dfs(u+1);
-            st[i]&#x3D;false;&#x2F;&#x2F;回溯的时候恢复现场
-        &#125;
-&#125;
-int main()&#123;
-	cin&gt;&gt;n; 
-	dfs(0);
-	return 0;
-&#125;</code></pre>
-<ul>
-<li>例二：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/845/">843. n - 皇后问题 - AcWing 题库</a></li>
-</ul>
-<p>做法一：全排列</p>
-<p>先判断第一行可以放在哪里，然后判断第二行可以放哪里…（注意剪枝），类似于选数字。</p>
-<pre class="language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
-using namespace std;
-const int N&#x3D;20;
-int n;
-char g[N][N];
-bool col[N],dg[N],udg[N];
-void dfs(int u)&#123;
-    if(u&#x3D;&#x3D;n)&#123;
-        for(int i&#x3D;0;i&lt;n;i++)puts(g[i]);
-        puts(&quot;&quot;);
-        return;
-    &#125;
-    for(int i&#x3D;0;i&lt;n;i++)
-        if(!col[i]&amp;&amp;!dg[u+i]&amp;&amp;!udg[n-u+i])&#123;
-            g[u][i]&#x3D;&#39;Q&#39;;
-            col[i]&#x3D;dg[u+i]&#x3D;udg[n-u+i]&#x3D;true;
-            dfs(u+1);
-            col[i]&#x3D;dg[u+i]&#x3D;udg[n-u+i]&#x3D;false;
-            g[u][i]&#x3D;&#39;.&#39;;
-        &#125;
-&#125;
-int main()&#123;
-	cin&gt;&gt;n;
-    for(int i&#x3D;0;i&lt;n;i++)
-        for(int j&#x3D;0;j&lt;n;j++)
-            g[i][j]&#x3D;&#39;.&#39;;
-	dfs(0);
-	return 0;
-&#125;</code></pre>
-<p>DFS 没有固定的模板，注意思想。</p>
-<p>做法二：分状态，时间复杂度高。</p>
-<pre class="language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
-using namespace std;
-const int N&#x3D;20;
-int n;
-char g[N][N];
-bool row[N],col[N],dg[N],udg[N];
-void dfs(int x,int y,int s)&#123;
-    if(y&#x3D;&#x3D;n)y&#x3D;0,x++;
-    if(x&#x3D;&#x3D;n)&#123;
-        if(s&#x3D;&#x3D;n)&#123;
-            for(int i&#x3D;0;i&lt;n;i++)puts(g[i]);
-            puts(&quot;&quot;);
-        &#125;
-        return;
-    &#125;
-    &#x2F;&#x2F;不放皇后
-    dfs(x,y+1,s);
-    &#x2F;&#x2F;放皇后
-    if(!row[x]&amp;&amp;!col[y]&amp;&amp;!dg[x+y]&amp;&amp;!udg[x-y+n])&#123;
-        g[x][y]&#x3D;&#39;Q&#39;;
-        row[x]&#x3D;col[y]&#x3D;dg[x+y]&#x3D;udg[x-y+n]&#x3D;true;
-        dfs(x,y+1,s+1);
-        row[x]&#x3D;col[y]&#x3D;dg[x+y]&#x3D;udg[x-y+n]&#x3D;false;
-        g[x][y]&#x3D;&#39;.&#39;;
-    &#125;
-&#125;
-int main()&#123;
-	cin&gt;&gt;n;
-    for(int i&#x3D;0;i&lt;n;i++)
-        for(int j&#x3D;0;j&lt;n;j++)
-            g[i][j]&#x3D;&#39;.&#39;;
-	dfs(0,0,0);
-	return 0;
-&#125;</code></pre>
-<h1 id="宽度优先搜索bfs"><a class="markdownIt-Anchor" href="#宽度优先搜索bfs">#</a> 宽度优先搜索 BFS</h1>
-<p>使用队列将点放入。</p>
-<p>例一：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/846/">844. 走迷宫 - AcWing 题库</a></p>
-<ul>
-<li>当所有路的权重一样的时候才可以使用 BFS。其余的要用专门的最短路算法来解决。</li>
-</ul>
-<pre class="language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
-#include &lt;algorithm&gt;
-#include &lt;cstring&gt;
-using namespace std;
-const int N&#x3D;110;
-typedef pair&lt;int,int&gt; PII;
-int n,m;
-int g[N][N];
-int d[N][N];
-PII q[N*N];
-int bfs()&#123;
-	int hh&#x3D;0,tt&#x3D;0;
-    q[0]&#x3D;&#123;0,0&#125;;
-    
-    memset(d,-1,sizeof d);
-    d[0][0]&#x3D;0;
-    
-    int dx[4]&#x3D;&#123;-1,0,1,0&#125;,dy[4]&#x3D;&#123;0,1,0,-1&#125;;
-    
-    while(hh&lt;&#x3D;tt)&#123;
-        auto t&#x3D;q[hh++];
-        
-        for(int i&#x3D;0;i&lt;4;i++)&#123;
-            int x&#x3D;t.first+dx[i],y&#x3D;t.second+dy[i];
-            if(x&gt;&#x3D;0&amp;&amp;x&lt;n&amp;&amp;y&gt;&#x3D;0&amp;&amp;y&lt;m&amp;&amp;g[x][y]&#x3D;&#x3D;0&amp;&amp;d[x][y]&#x3D;&#x3D;-1)&#123;
-                d[x][y]&#x3D;d[t.first][t.second]+1;
-                q[++tt]&#x3D;&#123;x,y&#125;;
-            &#125;
-        &#125;
-    &#125;
-    return d[n-1][m-1];
-&#125;
-int main()&#123;
-    cin&gt;&gt;n&gt;&gt;m;
-    for(int i&#x3D;0;i&lt;n;i++)
-        for(int j&#x3D;0;j&lt;m;j++)
-            cin&gt;&gt;g[i][j];
-    cout&lt;&lt;bfs()&lt;&lt;endl;
-    return 0;
-&#125;</code></pre>
-<p>初始状态放入队列</p>
-<p>while（queue 非空）{</p>
-<p>​	取出对头；</p>
-<p>​	扩展队头；</p>
-<p>}</p>
-<h1 id="树与图的存储"><a class="markdownIt-Anchor" href="#树与图的存储">#</a> 树与图的存储</h1>
-<p>有两种存储方式，树是一种特殊的图（无环连通图）</p>
-<h2 id="第一种"><a class="markdownIt-Anchor" href="#第一种">#</a> 第一种</h2>
-<h1 id="树与图的深度优先遍历"><a class="markdownIt-Anchor" href="#树与图的深度优先遍历">#</a> 树与图的深度优先遍历</h1>
-<h1 id="树与图的宽度优先遍历"><a class="markdownIt-Anchor" href="#树与图的宽度优先遍历">#</a> 树与图的宽度优先遍历</h1>
-<h1 id="拓扑排序"><a class="markdownIt-Anchor" href="#拓扑排序">#</a> 拓扑排序</h1>
+                <h1 id="链表与邻接表"><a class="markdownIt-Anchor" href="#链表与邻接表">#</a> 链表与邻接表</h1>
+<p>用数组模拟，提高效率。</p>
+<h1 id="栈与队列"><a class="markdownIt-Anchor" href="#栈与队列">#</a> 栈与队列</h1>
+<h1 id="kmp"><a class="markdownIt-Anchor" href="#kmp">#</a> kmp</h1>
 
                 
             </div>
@@ -665,7 +441,7 @@ int main()&#123;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://stellaris123.github.io/2022/02/13/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA/">https://stellaris123.github.io/2022/02/13/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA/</a>
+                    <a href="https://stellaris123.github.io/2022/02/13/%E7%AE%97%E6%B3%95%E5%85%B8/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">https://stellaris123.github.io/2022/02/13/%E7%AE%97%E6%B3%95%E5%85%B8/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -707,12 +483,8 @@ int main()&#123;
                                     <span class="chip bg-color">算法</span>
                                 </a>
                             
-                                <a href="/tags/%E6%90%9C%E7%B4%A2/">
-                                    <span class="chip bg-color">搜索</span>
-                                </a>
-                            
-                                <a href="/tags/%E5%9B%BE%E8%AE%BA/">
-                                    <span class="chip bg-color">图论</span>
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                                    <span class="chip bg-color">数据结构</span>
                                 </a>
                             
                         </div>
@@ -764,13 +536,13 @@ int main()&#123;
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/02/13/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/">
+                <a href="/2022/02/13/%E7%AE%97%E6%B3%95%E5%85%B8/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="第四章 数学知识">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="第三章 搜索与图论">
                         
-                        <span class="card-title">第四章 数学知识</span>
+                        <span class="card-title">第三章 搜索与图论</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -802,8 +574,12 @@ int main()&#123;
                         <span class="chip bg-color">算法</span>
                     </a>
                     
-                    <a href="/tags/%E6%95%B0%E8%AE%BA/">
-                        <span class="chip bg-color">数论</span>
+                    <a href="/tags/%E6%90%9C%E7%B4%A2/">
+                        <span class="chip bg-color">搜索</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%9B%BE%E8%AE%BA/">
+                        <span class="chip bg-color">图论</span>
                     </a>
                     
                 </div>
@@ -817,13 +593,13 @@ int main()&#123;
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/02/13/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                <a href="/2022/02/12/Linux%E5%9F%BA%E7%A1%80%E6%8C%87%E4%BB%A4/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="第二章 数据结构">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Linux基础指令">
                         
-                        <span class="card-title">第二章 数据结构</span>
+                        <span class="card-title">Linux基础指令</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -834,14 +610,14 @@ int main()&#123;
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-12
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95%E5%85%B8/" class="post-category">
-                                    算法典
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
                                 </a>
                             
                             
@@ -851,12 +627,8 @@ int main()&#123;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                        <span class="chip bg-color">数据结构</span>
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
                     </a>
                     
                 </div>
@@ -1305,6 +1077,16 @@ $(function () {
     
 
     <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?bf7a6af9080955f9ad30f26bd702b447";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
 
     <!-- Baidu Push -->
 

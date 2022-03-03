@@ -469,7 +469,7 @@
         },
         xAxis: {
             type: 'category',
-            data: ["2021-02","2021-03","2021-04","2021-05","2021-06","2021-07","2021-08","2021-09","2021-10","2021-11","2021-12","2022-01","2022-02"]
+            data: ["2021-03","2021-04","2021-05","2021-06","2021-07","2021-08","2021-09","2021-10","2021-11","2021-12","2022-01","2022-02","2022-03"]
         },
         yAxis: {
             type: 'value',
@@ -479,7 +479,7 @@
                 name: '文章篇数',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [0,0,0,0,0,0,0,0,0,0,0,1,17],
+                data: [0,0,0,0,0,0,0,0,0,0,1,17,0],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -521,7 +521,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"Arduino","value":3},{"name":"Linux","value":1},{"name":"工具","value":1},{"name":"操作系统\"","value":1},{"name":"数据库","value":1},{"name":"算法典","value":6},{"name":"大学课程","value":1}],
+                data: [{"name":"Linux","value":1},{"name":"工具","value":1},{"name":"操作系统\"","value":1},{"name":"大学课程","value":1},{"name":"Arduino","value":3},{"name":"数据库","value":1},{"name":"算法典","value":6}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -545,7 +545,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["算法","Arduino","课程","Arduino程序","Linux","万用表","操作系统","数据库","排序","搜索"]
+                data: ["算法","Arduino","课程","Linux","万用表","操作系统","编译原理","Arduino程序","UNO","数据库"]
             }
         ],
         yAxis: [
@@ -728,18 +728,6 @@
         <div class="tag-chips center-align">
             
             
-            <a href="/tags/Arduino/">
-                <span class="chip center-align waves-effect waves-light chip-default">Arduino</span>
-            </a>
-            
-            
-            
-            <a href="/tags/Arduino%E7%A8%8B%E5%BA%8F/">
-                <span class="chip center-align waves-effect waves-light chip-default">Arduino程序</span>
-            </a>
-            
-            
-            
             <a href="/tags/Linux/">
                 <span class="chip center-align waves-effect waves-light chip-default">Linux</span>
             </a>
@@ -758,14 +746,38 @@
             
             
             
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                <span class="chip center-align waves-effect waves-light chip-default">数据库</span>
+            <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                <span class="chip center-align waves-effect waves-light chip-default">编译原理</span>
             </a>
             
             
             
             <a href="/tags/%E8%AF%BE%E7%A8%8B/">
                 <span class="chip center-align waves-effect waves-light chip-default">课程</span>
+            </a>
+            
+            
+            
+            <a href="/tags/Arduino/">
+                <span class="chip center-align waves-effect waves-light chip-default">Arduino</span>
+            </a>
+            
+            
+            
+            <a href="/tags/Arduino%E7%A8%8B%E5%BA%8F/">
+                <span class="chip center-align waves-effect waves-light chip-default">Arduino程序</span>
+            </a>
+            
+            
+            
+            <a href="/tags/UNO/">
+                <span class="chip center-align waves-effect waves-light chip-default">UNO</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                <span class="chip center-align waves-effect waves-light chip-default">数据库</span>
             </a>
             
             
@@ -794,12 +806,6 @@
             
             
             
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                <span class="chip center-align waves-effect waves-light chip-default">数据结构</span>
-            </a>
-            
-            
-            
             <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
                 <span class="chip center-align waves-effect waves-light chip-default">动态规划</span>
             </a>
@@ -818,14 +824,8 @@
             
             
             
-            <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
-                <span class="chip center-align waves-effect waves-light chip-default">编译原理</span>
-            </a>
-            
-            
-            
-            <a href="/tags/UNO/">
-                <span class="chip center-align waves-effect waves-light chip-default">UNO</span>
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                <span class="chip center-align waves-effect waves-light chip-default">数据结构</span>
             </a>
             
             
@@ -1167,6 +1167,16 @@ $(function () {
     
 
     <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?bf7a6af9080955f9ad30f26bd702b447";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
 
     <!-- Baidu Push -->
 

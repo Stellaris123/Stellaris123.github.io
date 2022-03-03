@@ -4,11 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Arduino程序, Stellaris">
-    <meta name="description" content="# 函数
-一个基本的 Arduino 程序至少包含两个函数。
-
-# 变量
+    <meta name="keywords" content="数据库系统原理 第一章 数据库系统概论, Stellaris">
+    <meta name="description" content="重点与难点：三个阶段；三级模式两层映像，物理独立性和逻辑独立性。
+# 基本概念
+与数据库技术密切相关的基本概念：①数据。②数据库。③数据库管理系统。④数据库系统。
+其中重点区分数据库管理系统和数据库系统的关系和区别。
+# 数据（Data）
 ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -21,7 +22,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Arduino程序 | Stellaris</title>
+    <title>数据库系统原理 第一章 数据库系统概论 | Stellaris</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -229,12 +230,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Arduino程序</h1>
+                    <h1 class="description center-align post-title">数据库系统原理 第一章 数据库系统概论</h1>
                 </div>
             </div>
         </div>
@@ -353,12 +354,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Arduino/">
-                                <span class="chip bg-color">Arduino</span>
+                            <a href="/tags/%E8%AF%BE%E7%A8%8B/">
+                                <span class="chip bg-color">课程</span>
                             </a>
                         
-                            <a href="/tags/Arduino%E7%A8%8B%E5%BA%8F/">
-                                <span class="chip bg-color">Arduino程序</span>
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                <span class="chip bg-color">数据库</span>
                             </a>
                         
                     </div>
@@ -369,8 +370,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Arduino/" class="post-category">
-                                Arduino
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
+                                数据库
                             </a>
                         
                     </div>
@@ -382,7 +383,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-02-20
+                    2022-02-24
                 </div>
                 
 
@@ -411,10 +412,235 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="函数"><a class="markdownIt-Anchor" href="#函数">#</a> 函数</h1>
-<p>一个基本的 Arduino 程序至少包含两个函数。</p>
-<img src="setup-loop函数.png" alt="setup-loop函数" style="zoom: 50%;" />
-<h1 id="变量"><a class="markdownIt-Anchor" href="#变量">#</a> 变量</h1>
+                <p>重点与难点：三个阶段；三级模式两层映像，物理独立性和逻辑独立性。</p>
+<h1 id="基本概念"><a class="markdownIt-Anchor" href="#基本概念">#</a> 基本概念</h1>
+<p>与数据库技术密切相关的基本概念：①数据。②数据库。③数据库管理系统。④数据库系统。</p>
+<p>其中重点区分数据库管理系统和数据库系统的关系和区别。</p>
+<h2 id="数据data"><a class="markdownIt-Anchor" href="#数据data">#</a> 数据（Data）</h2>
+<p>​		数据是数据库中存储的基本对象，是<mark>能够被计算机存储和处理的符号</mark>，其表现形式还可以是多种多样的（数字、文字、图形、声音…）。</p>
+<p>​		数据是信息的载体，信息需要特定的符号（数据）来表达；数据与语义是不可分的。</p>
+<p>例：符号与语义</p>
+<table>
+<thead>
+<tr>
+<th>语义</th>
+<th>学生姓名</th>
+<th>性别</th>
+<th>出生年月</th>
+<th>籍贯</th>
+<th>所在系别</th>
+<th>入学时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>符号</td>
+<td>李明</td>
+<td>男</td>
+<td>2000</td>
+<td>广东</td>
+<td>计算机科学系</td>
+<td>2020</td>
+</tr>
+</tbody>
+</table>
+<p>​		符号和语义组合成了一段数据，这种数据是信息（“李明是个大学生，2000 年出生，男，广东人，2020 年考入计算机科学系”）的载体。</p>
+<h2 id="数据库database"><a class="markdownIt-Anchor" href="#数据库database">#</a> 数据库（Database）</h2>
+<p>​		数据库是存放数据的仓库。</p>
+<ul>
+<li>特点</li>
+</ul>
+<ol>
+<li>按照一定的格式组织（数据模型）起来存放。</li>
+<li>数据长期存储</li>
+<li>可以为多个用户和应用系统共享使用。</li>
+<li>冗余度低、独立性高（冗余度：数据的重复性）</li>
+</ol>
+<p>总的来说：<mark>数据库是指长期存储在计算机内的、有组织的、可共享的数据集合。</mark></p>
+<h2 id="数据库管理系统dbms"><a class="markdownIt-Anchor" href="#数据库管理系统dbms">#</a> 数据库管理系统（DBMS）</h2>
+<p>​		数据库管理系统（Database Management System，DBMS）是专门用来<mark>管理和维护数据库</mark>的第三方计算机软件，位于应用系统和操作系统之间。</p>
+<ul>
+<li>操作系统：管理计算机软件和硬件。</li>
+</ul>
+<p>​		DBMS 是一个非常复杂的大型软件，为应用程序提供了访问数据库的各种接口。</p>
+<p>主要功能包括：①数据定义。②数据操控：增删查改。③数据控制：控制数据的使用权限。④数据管理功能：并发</p>
+<p>还有其他功能：数据存储、数据转储与重组、网络通信、数据传输、系统性能监视与调整。</p>
+<p>常见的 DBMS 有：①Oracle。②Sybase。③SQL Server。④MySQL。</p>
+<h2 id="数据库系统dbs"><a class="markdownIt-Anchor" href="#数据库系统dbs">#</a> 数据库系统（DBS）</h2>
+<p>​		数据库系统（Database System，DBS）是指引入数据库技术后<mark>具有管理数据库功能的计算机系统</mark>。</p>
+<p>系统构成：</p>
+<ul>
+<li>数据库</li>
+<li>数据库管理系统（及相关实用工具）</li>
+<li>应用程序</li>
+<li>数据库管理员（DBA）</li>
+</ul>
+<h2 id="重点区分dbms和dbs"><a class="markdownIt-Anchor" href="#重点区分dbms和dbs">#</a> 重点：区分 DBMS 和 DBS</h2>
+<h1 id="数据管理技术的产生和发展"><a class="markdownIt-Anchor" href="#数据管理技术的产生和发展">#</a> 数据管理技术的产生和发展</h1>
+<ul>
+<li>数据管理是对数据进行分类、组织、编码、存储、检索和维护，是数据处理和分析的核心问题。</li>
+<li>数据管理技术的发展动力需要应用需求的推动、计算机硬件的发展、计算机软件的发展。</li>
+</ul>
+<p>数据管理技术的发展经过三个过程。</p>
+<h2 id="一-人工管理阶段"><a class="markdownIt-Anchor" href="#一-人工管理阶段">#</a> 一、人工管理阶段</h2>
+<ul>
+<li>背景（20 世纪 40~50 年代）</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>应用需求</th>
+<th>硬件水平</th>
+<th>软件水平</th>
+<th>处理方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>科学计算</td>
+<td>打孔卡片、纸带和磁带</td>
+<td>没有操作系统</td>
+<td>批处理</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>数据特点</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>管理者</th>
+<th>面向的对象</th>
+<th>共享程度</th>
+<th>独立性</th>
+<th>结构化</th>
+<th>控制能力</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户（程序员）</td>
+<td>某一应用程序</td>
+<td>无共享、冗余度极大</td>
+<td>不独立、完全依赖程序</td>
+<td>无结构</td>
+<td>应用程序自己控制</td>
+</tr>
+</tbody>
+</table>
+<h2 id="二-文件系统阶段"><a class="markdownIt-Anchor" href="#二-文件系统阶段">#</a> 二、文件系统阶段</h2>
+<ul>
+<li>背景（20 世纪 50~60 年代）</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>应用需求</th>
+<th>硬件水平</th>
+<th>软件水平</th>
+<th>处理方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>科学计算、管理</td>
+<td>磁盘、磁鼓</td>
+<td>有文件系统</td>
+<td>联机实时处理、批处理</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>数据特点</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>管理者</th>
+<th>面向的对象</th>
+<th>共享程度</th>
+<th>独立性</th>
+<th>结构化</th>
+<th>控制能力</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>文件系统，数据可长期保存</td>
+<td>某一应用</td>
+<td>共享性差、冗余度大</td>
+<td>差</td>
+<td>记录内有结构，整体无结构</td>
+<td>应用程序自己控制</td>
+</tr>
+</tbody>
+</table>
+<h2 id="三-数据库系统阶段"><a class="markdownIt-Anchor" href="#三-数据库系统阶段">#</a> 三、数据库系统阶段</h2>
+<ul>
+<li>背景（20 世纪～现在）</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>应用需求</th>
+<th>硬件水平</th>
+<th>软件水平</th>
+<th>处理方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>大规模管理</td>
+<td>大容量磁盘、磁盘阵列</td>
+<td>有数据库管理系统</td>
+<td>联机实时处理、分布处理、批处理</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>数据特点</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>管理者</th>
+<th>面向的对象</th>
+<th>共享程度</th>
+<th>独立性</th>
+<th>结构化</th>
+<th>控制能力</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据库管理系统</td>
+<td>现实世界</td>
+<td>共享性高、冗余度低、易扩充</td>
+<td>高</td>
+<td>结构化</td>
+<td>由 DBMS 统一管理和控制</td>
+</tr>
+</tbody>
+</table>
+<h1 id="数据库系统结构"><a class="markdownIt-Anchor" href="#数据库系统结构">#</a> 数据库系统结构</h1>
+<p>​		DBMS 产品多种多样，但在总体结构上一般都采用<mark>三级模式</mark>。</p>
+<ul>
+<li>模式</li>
+</ul>
+<p>​		从全局角度理解 / 管理的数据的结构描述，含相应的关联约束，体现在数据之间的内在基本联系。</p>
+<ul>
+<li>外模式</li>
+</ul>
+<p>​		某一用户能够看到与处理的数据的结构描述。</p>
+<ul>
+<li>内模式</li>
+</ul>
+<p>​		存储在介质上的数据的节后描述，含存储路径、存储方式、索引方式。</p>
+<h2 id="模式"><a class="markdownIt-Anchor" href="#模式">#</a> 模式</h2>
+<h2 id="外模式"><a class="markdownIt-Anchor" href="#外模式">#</a> 外模式</h2>
+<h2 id="内模式"><a class="markdownIt-Anchor" href="#内模式">#</a> 内模式</h2>
+<h1 id="数据库系统的组成"><a class="markdownIt-Anchor" href="#数据库系统的组成">#</a> 数据库系统的组成</h1>
 
                 
             </div>
@@ -441,7 +667,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://stellaris123.github.io/2022/02/20/Arduino%E7%A8%8B%E5%BA%8F/">https://stellaris123.github.io/2022/02/20/Arduino%E7%A8%8B%E5%BA%8F/</a>
+                    <a href="https://stellaris123.github.io/2022/02/24/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA/">https://stellaris123.github.io/2022/02/24/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -479,12 +705,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Arduino/">
-                                    <span class="chip bg-color">Arduino</span>
+                                <a href="/tags/%E8%AF%BE%E7%A8%8B/">
+                                    <span class="chip bg-color">课程</span>
                                 </a>
                             
-                                <a href="/tags/Arduino%E7%A8%8B%E5%BA%8F/">
-                                    <span class="chip bg-color">Arduino程序</span>
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                    <span class="chip bg-color">数据库</span>
                                 </a>
                             
                         </div>
@@ -532,17 +758,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/02/21/%E7%94%B5%E5%AD%90%E5%85%83%E4%BB%B6-%E5%BC%80%E5%85%B3/">
+                <a href="/2022/02/24/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="电子元件-开关">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="数据库系统原理 第一章 数据库系统概论">
                         
-                        <span class="card-title">电子元件-开关</span>
+                        <span class="card-title">数据库系统原理 第一章 数据库系统概论</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -552,16 +779,33 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-02-21
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-24
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            lijunlin
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
+                                    数据库
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AF%BE%E7%A8%8B/">
+                        <span class="chip bg-color">课程</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -573,13 +817,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/02/20/%E8%AE%A4%E8%AF%86Arduino-UNO%E6%9D%BF/">
+                <a href="/2022/02/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%BC%95%E8%AE%BA/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="认识Arduino UNO板">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="操作系统 第一章 引论">
                         
-                        <span class="card-title">认识Arduino UNO板</span>
+                        <span class="card-title">操作系统 第一章 引论</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -590,14 +834,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-23
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Arduino/" class="post-category">
-                                    Arduino
+                            <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                    操作系统"
                                 </a>
                             
                             
@@ -607,12 +851,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Arduino/">
-                        <span class="chip bg-color">Arduino</span>
-                    </a>
-                    
-                    <a href="/tags/UNO/">
-                        <span class="chip bg-color">UNO</span>
+                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">操作系统</span>
                     </a>
                     
                 </div>
@@ -1061,6 +1301,16 @@ $(function () {
     
 
     <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?bf7a6af9080955f9ad30f26bd702b447";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
 
     <!-- Baidu Push -->
 
