@@ -4,12 +4,35 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="第一章 基础算法, Stellaris">
-    <meta name="description" content="# 一、排序
-# 快速排序（分治）
+    <meta name="keywords" content="第三章 搜索与图论, Stellaris">
+    <meta name="description" content="# 深度优先搜索 DFS
+# DFS 和 BFS 的区别
+搜索结构都是树的样子，但是搜索的顺序不同。
 
-①确定分界点：x=q[l]，q[r]，q[l+r&amp;gt;&amp;gt;1]x=q[l]，q[r]，q[l+r&amp;gt;&amp;gt;1]x=q[l]，q[r]，q[l+r&amp;gt;&amp;gt;1]。
-②调整区间：一边小于等">
+DFS 优先深度
+
+
+
+BFS 广度优先
+
+
+
+区别
+
+
+
+
+
+数据结构
+空间
+特点
+
+
+
+
+DFS
+stack
+O(n)O(n)O(n">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +44,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>第一章 基础算法 | Stellaris</title>
+    <title>第三章 搜索与图论 | Stellaris</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -229,12 +252,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">第一章 基础算法</h1>
+                    <h1 class="description center-align post-title">第三章 搜索与图论</h1>
                 </div>
             </div>
         </div>
@@ -357,8 +380,12 @@
                                 <span class="chip bg-color">算法</span>
                             </a>
                         
-                            <a href="/tags/%E6%8E%92%E5%BA%8F/">
-                                <span class="chip bg-color">排序</span>
+                            <a href="/tags/%E6%90%9C%E7%B4%A2/">
+                                <span class="chip bg-color">搜索</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%9B%BE%E8%AE%BA/">
+                                <span class="chip bg-color">图论</span>
                             </a>
                         
                     </div>
@@ -382,7 +409,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-01-27
+                    2022-02-13
                 </div>
                 
 
@@ -411,88 +438,250 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="一-排序"><a class="markdownIt-Anchor" href="#一-排序">#</a> 一、排序</h1>
-<h2 id="快速排序分治"><a class="markdownIt-Anchor" href="#快速排序分治">#</a> 快速排序（分治）</h2>
-<p><img src="image-20220208174647281.png" alt=""></p>
-<p>①确定分界点：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>q</mi><mo stretchy="false">[</mo><mi>l</mi><mo stretchy="false">]</mo><mtext>，</mtext><mi>q</mi><mo stretchy="false">[</mo><mi>r</mi><mo stretchy="false">]</mo><mtext>，</mtext><mi>q</mi><mo stretchy="false">[</mo><mi>l</mi><mo>+</mo><mi>r</mi><mo>&gt;</mo><mo>&gt;</mo><mn>1</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">x=q[l]，q[r]，q[l+r&gt;&gt;1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mclose">]</span><span class="mord cjk_fallback">，</span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mclose">]</span><span class="mord cjk_fallback">，</span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span></span></span></span>。</p>
-<p><mark>②调整区间：一边小于等于 x，一边大于等于 x。</mark></p>
-<p>③递归处理左右两边（注意左右两边的边界）</p>
-<blockquote>
-<p>伪代码：i 指针从数组左边界的左边开始，j 指针从数组右边界的右边开始。x 采用 l,r 中间的值。先移动 i 指针，当 i 指针所指的数大于 x 的时候停止并开始移动 j 指针，当 j 指针所指的数小于 x 的时候停止。此时若 i&lt;j，则进行交换。</p>
-</blockquote>
-<p>性质：任意时刻，i 左边的数始终小于等于 x，j 右边的数始终大于等于 x。当两指针相遇的时候结束。</p>
-<pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">const</span> <span class="token keyword">int</span> N<span class="token operator">=</span><span class="token number">1e6</span><span class="token operator">+</span><span class="token number">10</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> q<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">void</span> <span class="token function">quick_sort</span><span class="token punctuation">(</span><span class="token keyword">int</span> q<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token keyword">int</span> l<span class="token punctuation">,</span><span class="token keyword">int</span> r<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>l<span class="token operator">>=</span>r<span class="token punctuation">)</span><span class="token keyword">return</span><span class="token punctuation">;</span>
-	<span class="token comment">//因为是先移动再判断，所以要将范围向两侧扩一格。</span>
-    <span class="token keyword">int</span> i<span class="token operator">=</span>l<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>j<span class="token operator">=</span>r<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>x<span class="token operator">=</span>q<span class="token punctuation">[</span>l<span class="token operator">+</span>r<span class="token operator">>></span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment">//位运算优先级低于+</span>
-    <span class="token keyword">while</span><span class="token punctuation">(</span>i<span class="token operator">&lt;</span>j<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-        <span class="token keyword">do</span> i<span class="token operator">++</span> <span class="token punctuation">;</span><span class="token keyword">while</span><span class="token punctuation">(</span>q<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&lt;</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">do</span> j<span class="token operator">--</span> <span class="token punctuation">;</span><span class="token keyword">while</span><span class="token punctuation">(</span>q<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">></span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">&lt;</span>j<span class="token punctuation">)</span><span class="token function">swap</span><span class="token punctuation">(</span>q<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>q<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token comment">//递归处理左右两边</span>
-    <span class="token function">quick_sort</span><span class="token punctuation">(</span>q<span class="token punctuation">,</span>l<span class="token punctuation">,</span>j<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">quick_sort</span><span class="token punctuation">(</span>q<span class="token punctuation">,</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>r<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-<span class="token comment">//调用，数据从0开始储存。</span>
-<span class="token function">quick_sort</span><span class="token punctuation">(</span>q<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>时间复杂度：平均<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(nlogn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>，最坏<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>。</p>
-<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≤</mo><mi>d</mi><mi>s</mi><mn>233</mn></mrow><annotation encoding="application/x-tex">\le ds 233</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">s</span><span class="mord">2</span><span class="mord">3</span><span class="mord">3</span></span></span></span></p>
-<h2 id="归并排序分治"><a class="markdownIt-Anchor" href="#归并排序分治">#</a> 归并排序（分治）</h2>
-<p>①确定分界点：mid=(l+r)&gt;&gt;1</p>
-<p>②递归排序 left,right。</p>
-<p>※③归并 —— 将两个有序的区间合二为一</p>
-<blockquote>
-<p>伪代码：</p>
-</blockquote>
-<pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">const</span> <span class="token keyword">int</span> N<span class="token operator">=</span><span class="token number">1e6</span><span class="token operator">+</span><span class="token number">10</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> q<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> temp<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment">//临时数组</span>
-<span class="token keyword">void</span> <span class="token function">merge_sort</span><span class="token punctuation">(</span><span class="token keyword">int</span> q<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token keyword">int</span> l<span class="token punctuation">,</span><span class="token keyword">int</span> r<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>l <span class="token operator">>=</span> r<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
-    <span class="token comment">//确定分界点</span>
-    <span class="token keyword">int</span> mid<span class="token operator">=</span>l<span class="token operator">+</span>r<span class="token operator">>></span><span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token comment">//递归排序</span>
-    <span class="token function">merge_sort</span><span class="token punctuation">(</span>q<span class="token punctuation">,</span>l<span class="token punctuation">,</span>mid<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">merge_sort</span><span class="token punctuation">(</span>q<span class="token punctuation">,</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>r<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">//排序</span>
-    <span class="token keyword">int</span> k<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>i<span class="token operator">=</span>l<span class="token punctuation">,</span>j<span class="token operator">=</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token keyword">while</span><span class="token punctuation">(</span>i<span class="token operator">&lt;=</span>mid<span class="token operator">&amp;&amp;</span>j<span class="token operator">&lt;=</span>r<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>q<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&lt;=</span>q<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>temp<span class="token punctuation">[</span>k<span class="token operator">++</span><span class="token punctuation">]</span><span class="token operator">=</span>q<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token keyword">else</span> temp<span class="token punctuation">[</span>k<span class="token operator">++</span><span class="token punctuation">]</span><span class="token operator">=</span>q<span class="token punctuation">[</span>j<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token comment">//归并</span>
-    <span class="token keyword">while</span><span class="token punctuation">(</span>i<span class="token operator">&lt;=</span>mid<span class="token punctuation">)</span>temp<span class="token punctuation">[</span>k<span class="token operator">++</span><span class="token punctuation">]</span><span class="token operator">=</span>q<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">while</span><span class="token punctuation">(</span>j<span class="token operator">&lt;=</span>r<span class="token punctuation">)</span>temp<span class="token punctuation">[</span>k<span class="token operator">++</span><span class="token punctuation">]</span><span class="token operator">=</span>q<span class="token punctuation">[</span>j<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <h1 id="深度优先搜索dfs"><a class="markdownIt-Anchor" href="#深度优先搜索dfs">#</a> 深度优先搜索 DFS</h1>
+<h2 id="dfs和bfs的区别"><a class="markdownIt-Anchor" href="#dfs和bfs的区别">#</a> DFS 和 BFS 的区别</h2>
+<p>搜索结构都是树的样子，但是搜索的顺序不同。</p>
+<ul>
+<li>DFS 优先深度</li>
+</ul>
+<img src="第三章-搜索与图论/605c22e0fb084b455de9cbbd0c31fd2.jpg" alt="605c22e0fb084b455de9cbbd0c31fd2" style="zoom:33%;" />
+<ul>
+<li>BFS 广度优先</li>
+</ul>
+<img src="第三章-搜索与图论/605c22e0fb084b455de9cbbd0c31fd2-16458795677261.jpg" alt="605c22e0fb084b455de9cbbd0c31fd2" style="zoom: 33%;" />
+<ul>
+<li>区别</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>数据结构</th>
+<th>空间</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DFS</td>
+<td>stack</td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></td>
+<td>不具有最短性（算法思路比较奇怪，空间要求高）</td>
+</tr>
+<tr>
+<td>BFS</td>
+<td>queue</td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mn>2</mn><mi>n</mi></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(2^n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></td>
+<td>最短路，最小步数，最小操作</td>
+</tr>
+</tbody>
+</table>
+<h2 id="dfs"><a class="markdownIt-Anchor" href="#dfs">#</a> DFS</h2>
+<ul>
+<li>重要概念：回溯，剪枝</li>
+</ul>
+<p>我们可以从搜索树的角度来思考，每一个 DFS 都对应了一个搜索树。</p>
+<ul>
+<li>例一：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/844/">842. 排列数字 - AcWing 题库</a></li>
+</ul>
+<p>DFS：考虑是用了什么顺序（规则）来遍历整个图（树）。</p>
+<p>假设一开始有三个空位，从前往后依次填入，保证各个位数不相同。</p>
+<img src="第三章-搜索与图论/46eb62ec2cc735f2d9b2588cb237463.png" alt="46eb62ec2cc735f2d9b2588cb237463" style="zoom: 33%;" />
+<pre class="language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+const int N&#x3D;10;
+int n;
+int path[N];
+bool st[N];
+void dfs(int u)&#123;
+    if(u&#x3D;&#x3D;n)&#123;&#x2F;&#x2F;当路径满的时候输出
+        for(int i&#x3D;0;i&lt;n;i++)cout&lt;&lt;path[i]&lt;&lt;&quot; &quot;;
+        cout&lt;&lt;endl;
+        return;
+    &#125;
+    for(int i&#x3D;1;i&lt;&#x3D;n;i++)
+        if(!st[i])&#123;&#x2F;&#x2F;判断还有什么数可以填入
+            path[u]&#x3D;i;
+            st[i]&#x3D;true;
+            dfs(u+1);
+            st[i]&#x3D;false;&#x2F;&#x2F;回溯的时候恢复现场
+        &#125;
+&#125;
+int main()&#123;
+	cin&gt;&gt;n; 
+	dfs(0);
+	return 0;
+&#125;</code></pre>
+<ul>
+<li>例二：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/845/">843. n - 皇后问题 - AcWing 题库</a></li>
+</ul>
+<p>做法一：全排列</p>
+<p>先判断第一行可以放在哪里，然后判断第二行可以放哪里…（注意剪枝），类似于选数字。</p>
+<pre class="language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+const int N&#x3D;20;
+int n;
+char g[N][N];
+bool col[N],dg[N],udg[N];
+void dfs(int u)&#123;
+    if(u&#x3D;&#x3D;n)&#123;
+        for(int i&#x3D;0;i&lt;n;i++)puts(g[i]);
+        puts(&quot;&quot;);
+        return;
+    &#125;
+    for(int i&#x3D;0;i&lt;n;i++)
+        if(!col[i]&amp;&amp;!dg[u+i]&amp;&amp;!udg[n-u+i])&#123;
+            g[u][i]&#x3D;&#39;Q&#39;;
+            col[i]&#x3D;dg[u+i]&#x3D;udg[n-u+i]&#x3D;true;
+            dfs(u+1);
+            col[i]&#x3D;dg[u+i]&#x3D;udg[n-u+i]&#x3D;false;
+            g[u][i]&#x3D;&#39;.&#39;;
+        &#125;
+&#125;
+int main()&#123;
+	cin&gt;&gt;n;
+    for(int i&#x3D;0;i&lt;n;i++)
+        for(int j&#x3D;0;j&lt;n;j++)
+            g[i][j]&#x3D;&#39;.&#39;;
+	dfs(0);
+	return 0;
+&#125;</code></pre>
+<p>DFS 没有固定的模板，注意思想。</p>
+<p>做法二：分状态，时间复杂度高。</p>
+<pre class="language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+const int N&#x3D;20;
+int n;
+char g[N][N];
+bool row[N],col[N],dg[N],udg[N];
+void dfs(int x,int y,int s)&#123;
+    if(y&#x3D;&#x3D;n)y&#x3D;0,x++;
+    if(x&#x3D;&#x3D;n)&#123;
+        if(s&#x3D;&#x3D;n)&#123;
+            for(int i&#x3D;0;i&lt;n;i++)puts(g[i]);
+            puts(&quot;&quot;);
+        &#125;
+        return;
+    &#125;
+    &#x2F;&#x2F;不放皇后
+    dfs(x,y+1,s);
+    &#x2F;&#x2F;放皇后
+    if(!row[x]&amp;&amp;!col[y]&amp;&amp;!dg[x+y]&amp;&amp;!udg[x-y+n])&#123;
+        g[x][y]&#x3D;&#39;Q&#39;;
+        row[x]&#x3D;col[y]&#x3D;dg[x+y]&#x3D;udg[x-y+n]&#x3D;true;
+        dfs(x,y+1,s+1);
+        row[x]&#x3D;col[y]&#x3D;dg[x+y]&#x3D;udg[x-y+n]&#x3D;false;
+        g[x][y]&#x3D;&#39;.&#39;;
+    &#125;
+&#125;
+int main()&#123;
+	cin&gt;&gt;n;
+    for(int i&#x3D;0;i&lt;n;i++)
+        for(int j&#x3D;0;j&lt;n;j++)
+            g[i][j]&#x3D;&#39;.&#39;;
+	dfs(0,0,0);
+	return 0;
+&#125;</code></pre>
+<h1 id="宽度优先搜索bfs"><a class="markdownIt-Anchor" href="#宽度优先搜索bfs">#</a> 宽度优先搜索 BFS</h1>
+<p>使用队列将点放入。</p>
+<p>例一：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/846/">844. 走迷宫 - AcWing 题库</a></p>
+<ul>
+<li>当所有路的权重一样的时候才可以使用 BFS。其余的要用专门的最短路算法来解决。</li>
+</ul>
+<pre class="language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+using namespace std;
+const int N&#x3D;110;
+typedef pair&lt;int,int&gt; PII;
+int n,m;
+int g[N][N];
+int d[N][N];
+PII q[N*N];
+int bfs()&#123;
+	int hh&#x3D;0,tt&#x3D;0;
+    q[0]&#x3D;&#123;0,0&#125;;
     
-    <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span>l<span class="token punctuation">,</span>j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>r<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">,</span>j<span class="token operator">++</span><span class="token punctuation">)</span>q<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>temp<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-<span class="token comment">//调用，数据从0开始储存。</span>
-<span class="token function">merge_sort</span><span class="token punctuation">(</span>q<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>时间复杂度：O (nlogn)。（每次划分区间除二，所以与二的对数有关）</p>
-<h1 id="font-colorlightcoral二-二分font"><a class="markdownIt-Anchor" href="#font-colorlightcoral二-二分font">#</a> <font color=LightCoral>二、二分</font></h1>
-<p>单调序列或单调函数中的查找方式。（终止条件：l=r）</p>
-<h2 id="font-colorlightsalmon整数域二分font"><a class="markdownIt-Anchor" href="#font-colorlightsalmon整数域二分font">#</a> <font color=LightSalmon>整数域二分</font></h2>
+    memset(d,-1,sizeof d);
+    d[0][0]&#x3D;0;
+    
+    int dx[4]&#x3D;&#123;-1,0,1,0&#125;,dy[4]&#x3D;&#123;0,1,0,-1&#125;;
+    
+    while(hh&lt;&#x3D;tt)&#123;
+        auto t&#x3D;q[hh++];
+        
+        for(int i&#x3D;0;i&lt;4;i++)&#123;
+            int x&#x3D;t.first+dx[i],y&#x3D;t.second+dy[i];
+            if(x&gt;&#x3D;0&amp;&amp;x&lt;n&amp;&amp;y&gt;&#x3D;0&amp;&amp;y&lt;m&amp;&amp;g[x][y]&#x3D;&#x3D;0&amp;&amp;d[x][y]&#x3D;&#x3D;-1)&#123;
+                d[x][y]&#x3D;d[t.first][t.second]+1;
+                q[++tt]&#x3D;&#123;x,y&#125;;
+            &#125;
+        &#125;
+    &#125;
+    return d[n-1][m-1];
+&#125;
+int main()&#123;
+    cin&gt;&gt;n&gt;&gt;m;
+    for(int i&#x3D;0;i&lt;n;i++)
+        for(int j&#x3D;0;j&lt;m;j++)
+            cin&gt;&gt;g[i][j];
+    cout&lt;&lt;bfs()&lt;&lt;endl;
+    return 0;
+&#125;</code></pre>
+<p>初始状态放入队列</p>
+<p>while（queue 非空）{</p>
+<p>​	取出对头；</p>
+<p>​	扩展队头；</p>
+<p>}</p>
+<h1 id="树与图的存储"><a class="markdownIt-Anchor" href="#树与图的存储">#</a> 树与图的存储</h1>
+<p>有两种存储方式，树是一种特殊的图（无环连通图）</p>
 <ul>
-<li>注意终止边界、左右区间取舍。</li>
+<li>有向图的存储（第一种：邻接矩阵）</li>
 </ul>
-<p>（1）缩小范围：r=mid，l=mid+1，取中间值：mid=(l+r)&gt;&gt;1。</p>
-<p>（2）缩小范围：l=mid，r=mid+r，取中间值：mid=(l+r+1)&gt;&gt;1。</p>
-<p>第一种不会取到<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span> 这个值，第二种不会取到<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>l</mi></mrow><annotation encoding="application/x-tex">l</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span></span></span></span>。可以用来处理无解的情况。最初的二分区间从 [1,n] 扩大到 [1,n+1] 和 [0,n]，若最后二分终止在这个越界的下标上，则无解。</p>
+<p>​		使用一个二维数组<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false">[</mo><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">g[][]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">[</span><span class="mclose">]</span><span class="mopen">[</span><span class="mclose">]</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false">[</mo><mi>a</mi><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>b</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">g[a][b]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">[</span><span class="mord mathnormal">a</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathnormal">b</span><span class="mclose">]</span></span></span></span> 表示 a 到 b 的权值。空间复杂度大<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>N</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(N^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>，适合稠密图。</p>
 <ul>
-<li>右移运算向下取整，整数除法向零取整。</li>
+<li>有向图的存储（第二种：邻接表）（用的多）</li>
 </ul>
-<h2 id="font-colorlightsalmon实数域上的二分font"><a class="markdownIt-Anchor" href="#font-colorlightsalmon实数域上的二分font">#</a> <font color=LightSalmon>实数域上的二分</font></h2>
-<ul>
-<li>注意精度问题</li>
-</ul>
-<p>使用循环固定次数的二分方法解决精度问题。（精度比 eps 高）</p>
-<pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token number">100</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token comment">//求mid</span>
-    <span class="token keyword">double</span> mid<span class="token operator">=</span><span class="token punctuation">(</span>l<span class="token operator">+</span>r<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">calc</span><span class="token punctuation">(</span>mid<span class="token punctuation">)</span><span class="token punctuation">)</span>r<span class="token operator">=</span>mid<span class="token punctuation">;</span> <span class="token keyword">else</span> l<span class="token operator">=</span>mid<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span></code></pre>
-<font color=LightSkyBlue>
+<p>​		每一个点引出一个单链表，存储这个点可以到达哪个点。（拉链法的哈希表）</p>
+<pre class="language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+const int N&#x3D;100010,M&#x3D;N*2;
+int h[N],e[N],ne[N],idx;
+void add(int a,int b)&#123;
+    e[idx]&#x3D;b,ne[idx]&#x3D;h[a],h[a]&#x3D;idx++;
+&#125;
+int main()&#123;
+    memset(h,-1,sizeof(h));
+    
+    return 0;
+&#125;</code></pre>
+<h1 id="树与图的深度优先遍历"><a class="markdownIt-Anchor" href="#树与图的深度优先遍历">#</a> 树与图的深度优先遍历</h1>
+<pre class="language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+const int N&#x3D;100010,M&#x3D;N*2;
+int h[N],e[N],ne[N],idx;
+bool st[N];&#x2F;&#x2F;标记点是否搜索过
+void add(int a,int b)&#123;
+    e[idx]&#x3D;b,ne[idx]&#x3D;h[a],h[a]&#x3D;idx++;
+&#125;
+void dfs(int u)&#123;
+    st[u]&#x3D;true;
+    for(int i&#x3D;h[u];i!&#x3D;-1;i&#x3D;ne[i])&#123;
+        int j&#x3D;e[i];
+        if(!st[j])dfs(j);
+    &#125;
+&#125;
+int main()&#123;
+    memset(h,-1,sizeof(h));
+    
+    return 0;
+&#125;</code></pre>
+<h1 id="树与图的宽度优先遍历"><a class="markdownIt-Anchor" href="#树与图的宽度优先遍历">#</a> 树与图的宽度优先遍历</h1>
+<h1 id="拓扑排序"><a class="markdownIt-Anchor" href="#拓扑排序">#</a> 拓扑排序</h1>
 
                 
             </div>
@@ -519,7 +708,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://stellaris123.github.io/2022/01/27/%E7%AE%97%E6%B3%95%E5%85%B8/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/">https://stellaris123.github.io/2022/01/27/%E7%AE%97%E6%B3%95%E5%85%B8/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/</a>
+                    <a href="https://stellaris123.github.io/2022/02/13/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA/">https://stellaris123.github.io/2022/02/13/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -561,8 +750,12 @@
                                     <span class="chip bg-color">算法</span>
                                 </a>
                             
-                                <a href="/tags/%E6%8E%92%E5%BA%8F/">
-                                    <span class="chip bg-color">排序</span>
+                                <a href="/tags/%E6%90%9C%E7%B4%A2/">
+                                    <span class="chip bg-color">搜索</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%9B%BE%E8%AE%BA/">
+                                    <span class="chip bg-color">图论</span>
                                 </a>
                             
                         </div>
@@ -614,13 +807,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/02/12/Linux%E5%9F%BA%E7%A1%80%E6%8C%87%E4%BB%A4/">
+                <a href="/2022/02/13/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Linux基础指令">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="第四章 数学知识">
                         
-                        <span class="card-title">Linux基础指令</span>
+                        <span class="card-title">第四章 数学知识</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -631,14 +824,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-02-12
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-02-13
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Linux/" class="post-category">
-                                    Linux
+                            <a href="/categories/%E7%AE%97%E6%B3%95%E5%85%B8/" class="post-category">
+                                    算法典
                                 </a>
                             
                             
@@ -648,8 +841,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E8%AE%BA/">
+                        <span class="chip bg-color">数论</span>
                     </a>
                     
                 </div>
@@ -660,16 +857,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/01/27/%E7%AE%97%E6%B3%95%E5%85%B8/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/">
+                <a href="/2022/02/13/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="第一章 基础算法">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="第二章 数据结构">
                         
-                        <span class="card-title">第一章 基础算法</span>
+                        <span class="card-title">第二章 数据结构</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -680,7 +877,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-13
                             </span>
                         <span class="publish-author">
                             
@@ -694,7 +891,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -702,8 +898,8 @@
                         <span class="chip bg-color">算法</span>
                     </a>
                     
-                    <a href="/tags/%E6%8E%92%E5%BA%8F/">
-                        <span class="chip bg-color">排序</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="chip bg-color">数据结构</span>
                     </a>
                     
                 </div>
